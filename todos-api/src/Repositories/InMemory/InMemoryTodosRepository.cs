@@ -14,6 +14,11 @@ namespace todos_api.Repositories.InMemory
             _initialTodos = initialTodos;
         }
 
+        public InMemoryTodosRepository()
+        {
+            _initialTodos = new Dictionary<int, IEnumerable<Todo>>();
+        }
+
         public IObservable<IEnumerable<Todo>> GetAllById(int id)
         {
             var userExists = _initialTodos.ContainsKey(id);
